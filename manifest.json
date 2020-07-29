@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Self-Censorship",
+  "minimum_chrome_version": "21",
+  "description": "Censor profanity words",
+  "version": "1.0.0",
+  "browser_action":{
+    "default_popup":"index.html"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js":["content.js"],
+    "run_at": "document_start"
+  }],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources":[
+    "config.js"
+  ],
+  "permissions": [
+    "tabs",
+    "storage",
+    "activeTab",
+    "webRequest",
+    "*://*/*",
+    "<all_urls>"
+  ]
+}
